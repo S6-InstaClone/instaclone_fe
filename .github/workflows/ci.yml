@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    name: Install, Lint, Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        working-directory: instaclone_fe
+        run: npm install
+
+      - name: Lint
+        working-directory: instaclone_fe
+        run: npm run lint --if-present
+
+      - name: Build app
+        working-directory: instaclone_fe
+        run: npm run build
