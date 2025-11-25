@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import deleteAccount from '../api/keycloak.js';
+
 export default function Profile() {
     const [user, setUser] = useState(null);
 

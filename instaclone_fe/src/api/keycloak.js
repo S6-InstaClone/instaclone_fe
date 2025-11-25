@@ -11,7 +11,7 @@ async function exchangeCodeForTokens(code) {
     params.append("grant_type", "authorization_code");
     params.append("client_id", "myclient");
     params.append("code", code);
-    params.append("redirect_uri", "http://localhost:3000");
+    params.append("redirect_uri", "http://localhost:55757");
     params.append("code_verifier", localStorage.getItem("pkce_verifier")); // if using PKCE
 
     const res = await fetch("http://localhost:18080/realms/instaclone/protocol/openid-connect/token", {

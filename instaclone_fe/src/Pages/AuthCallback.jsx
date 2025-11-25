@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { notifyAuthChange } from "../auth";
 
 function AuthCallback() {
     const navigate = useNavigate();
@@ -32,9 +33,15 @@ function AuthCallback() {
 
             sessionStorage.setItem("access_token", data.access_token);
             sessionStorage.setItem("refresh_token", data.refresh_token);
-            sessionStorage.setItem("id_token", data.id_token);
+            if (data.id_token) {
+                sessionStorage.setItem("id_token", data.id_token);
+            }
 
             hasExchanged.current = true; // mark as done
+
+            // Notify that auth state changed
+            notifyAuthChange();
+
             navigate("/profile");
         }
 
