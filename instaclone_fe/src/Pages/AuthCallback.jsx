@@ -42,7 +42,7 @@ function AuthCallback() {
             // Notify that auth state changed
             notifyAuthChange();
 
-            navigate("/profile");
+            navigate("/");
         }
 
         exchangeCode();

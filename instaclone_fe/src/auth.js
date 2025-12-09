@@ -2,6 +2,16 @@ export function isLoggedIn() {
     return !!sessionStorage.getItem("access_token");
 }
 
+export function redirectToLogin() {
+    const authUrl = "http://localhost:18080/realms/instaclone/protocol/openid-connect/auth"
+        + "?client_id=public-client"
+        + "&response_type=code"
+        + "&scope=openid profile email"
+        + `&redirect_uri=${encodeURIComponent("http://localhost:55757/auth/callback")}`;
+
+    window.location.href = authUrl;
+}
+
 export function logout() {
     const idToken = sessionStorage.getItem("id_token");
 
