@@ -39,7 +39,7 @@ function PostList() {
                             fontSize: '0.9rem',
                             color: '#646cff'
                         }}>
-                            @{post.username || 'unknown'}
+                            {post.username || 'unknown'}
                         </div>
 
                         {/* Post image */}

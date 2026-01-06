@@ -95,6 +95,14 @@ export default function Posts() {
                                     }}
                                 />
                             )}
+                            <div style={{
+                                fontWeight: 'bold',
+                                marginBottom: '0.5rem',
+                                fontSize: '0.9rem',
+                                color: '#646cff'
+                            }}>
+                                {post.username || 'unknown'}
+                            </div> 
                             <p style={{ margin: '10px 0' }}>{post.caption}</p>
                             <div style={{ fontSize: '12px', color: '#999' }}>
                                 Posted by: {post.userId || 'Unknown'}
